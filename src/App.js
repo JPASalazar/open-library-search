@@ -1,8 +1,20 @@
+import Search from "./components/Search"
+import Status from "./components/Status"
+import Results from "./components/Results"
+
 function App() {
   return (
-    <div className="App">
-      Project Scaffold
-    </div>
+    <>
+      <header>
+        <Status />
+        <Search />
+      </header>
+      <main>
+        <section>
+          <Results />
+        </section>
+      </main>
+    </>
   );
 }
 
