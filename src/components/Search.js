@@ -27,6 +27,7 @@ export default function Search({ setData, setLoading }) {
    * Handles the loading state and resets form after successeful API request 
    */
   const handleSubmit = (values, actions) => {
+    setRequestError(false)
     setLoading(true)
     axios.get('http://openlibrary.org/search.json?limit=10&q=' + values.queryTerm, { timeout: 5000 }) // 
       .then(data => {
