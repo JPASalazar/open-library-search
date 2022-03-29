@@ -2,6 +2,7 @@ import { useState } from "react"
 import Search from "./components/Search"
 import Status from "./components/Status"
 import Results from "./components/Results"
+import Spinner from "./utils/Spinner"
 
 function App() {
   /** 
@@ -21,13 +22,15 @@ function App() {
 
   return (
     <>
-      <header>
-        <Status previousSearch={data.q} loading={loading} />
-        <Search setData={setData} setLoading={setLoading} />
+      <header className='sticky top-0 py-10 bg-white shadow-lg'>
+        <div className='container flex flex-col items-center justify-center px-5 m-auto'>
+          <Status previousSearch={data.q} loading={loading} />
+          <Search setData={setData} setLoading={setLoading} />
+        </div>
       </header>
-      <main>
-        <section>
-          <Results data={data.docs} loading={loading} />
+      <main className='container m-auto'>
+        <section className='px-5 py-10'>
+          {loading ? <Spinner /> : <Results data={data.docs} loading={loading} />}
         </section>
       </main>
     </>
