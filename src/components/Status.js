@@ -1,5 +1,5 @@
-export default function Status() {
+export default function Status({ previousSearch, loading }) {
   return (
-    <div>Status</div>
+    <p>Your search: {previousSearch}</p>
   )
 }
