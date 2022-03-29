@@ -61,14 +61,16 @@ export default function Search({ setData, setLoading }) {
     >
       {({ isSubmitting }) => (
         <>
-          <Form>
-            <Field type="text" name="queryTerm" placeholder="Search..." />
-            <button type="submit" disabled={isSubmitting}>Submit</button>
+          <Form className="flex p-2 border-2 border-gray-400 border-solid rounded-lg">
+            <Field type="text" name="queryTerm" placeholder="Search..." className="focus:outline-none" />
+            <button type="submit" disabled={isSubmitting}>
+              <img src={require('../resources/images/search_icon.png')} alt="search button" className="w-5 h-5" />
+            </button>
           </Form>
           {/* NOTE: Display Formik validation errors */}
-          <ErrorMessage name="queryTerm" component="p" />
+          <ErrorMessage name="queryTerm" component="p" className="pt-2 text-sm text-red-600" />
           {/* NOTE: Display Axios API request errors */}
-          {requestError.status ? <p>{requestError.message}</p> : null}
+          {requestError.status ? <p className="pt-2 text-sm text-red-600">{requestError.message}</p> : null}
         </>
       )}
     </Formik>
