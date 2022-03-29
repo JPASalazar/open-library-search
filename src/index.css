@@ -1,3 +1,9 @@
 @tailwind base;
+
+@layer base {
+  body {@apply bg-gray-100}
+  #root {@apply h-screen overflow-y-scroll}
+}
+
 @tailwind components;
 @tailwind utilities;
